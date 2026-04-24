@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приюты животных Краснодарского края - Помощь и забота</title>
     <style>
-        /* БАЗОВЫЙ СТИЛЬ 2026 - ОПТИМИЗИРОВАНО */
         :root {
             --primary: #7B68EE;
             --secondary: #00CED1;
@@ -31,8 +30,6 @@
         
         .header { 
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
-            background-size: cover;
-            background-position: center;
             color: white; 
             padding: 60px 20px; 
             text-align: center; 
@@ -84,18 +81,31 @@
             margin: 40px 0;
         }
         
-        .animal-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 15px;
+        .animal-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
             transition: transform 0.2s;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(5px);
         }
         
-        .animal-img:hover {
-            transform: scale(1.05);
+        .animal-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .animal-emoji {
+            font-size: 80px;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .animal-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary);
         }
         
         .content { 
@@ -115,7 +125,7 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 30px;
+            padding: 25px;
             border-radius: 20px; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             transition: transform 0.2s, box-shadow 0.2s;
@@ -141,15 +151,16 @@
         
         .phone { 
             background: rgba(255,255,255,0.1);
-            padding: 15px; 
+            padding: 12px; 
             border-radius: 10px;
-            margin: 20px 0; 
-            font-size: 18px; 
+            margin: 15px 0 0 0; 
+            font-size: 16px; 
             font-weight: bold; 
             color: #00CED1;
             border: 2px solid rgba(0,206,209,0.2);
             transition: all 0.2s;
             cursor: pointer;
+            text-align: center;
         }
         
         .phone:hover {
@@ -192,6 +203,23 @@
             border-top: 4px solid var(--accent);
         }
         
+        button {
+            background: white; 
+            color: var(--dark); 
+            border: none; 
+            padding: 12px 35px;
+            font-size: 16px; 
+            border-radius: 50px; 
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        button:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
         @media (max-width: 1200px) {
             .shelter-grid, .stats, .animals-gallery {
                 grid-template-columns: repeat(2, 1fr);
@@ -201,7 +229,7 @@
         @media (max-width: 768px) {
             .header { padding: 40px 15px; }
             .quote { font-size: 18px; padding: 15px; }
-            h1 { font-size: 2em !important; }
+            h1 { font-size: 1.8em !important; }
             .shelter-grid, .stats, .animals-gallery { 
                 grid-template-columns: 1fr;
             }
@@ -212,7 +240,7 @@
 <body>
     <div class="header">
         <div class="header-content">
-            <div class="animals" style="font-size: 45px; margin: 15px 0;">🐕 🐈 🐇 🐦 🐾</div>
+            <div style="font-size: 45px; margin: 15px 0;">🐕 🐈 🐇 🐦 🐾</div>
             <h1 style="font-size: 2.8em; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
                 ПРИЮТЫ ЖИВОТНЫХ КРАСНОДАРСКОГО КРАЯ
             </h1>
@@ -230,20 +258,7 @@
                 <p style="font-size: 1.1em; margin-bottom: 25px;">
                     Каждое животное заслуживает любви, заботы и теплого дома.
                 </p>
-                <button style="
-                    background: white; 
-                    color: var(--dark); 
-                    border: none; 
-                    padding: 12px 35px;
-                    font-size: 16px; 
-                    border-radius: 50px; 
-                    font-weight: bold;
-                    cursor: pointer;
-                    transition: 0.2s;
-                " onmouseover="this.style.background='var(--accent)'; this.style.color='white'"
-                   onmouseout="this.style.background='white'; this.style.color='var(--dark)'">
-                    🐾 СТАНЬ ГЕРОЕМ СЕГОДНЯ!
-                </button>
+                <button>🐾 СТАНЬ ГЕРОЕМ СЕГОДНЯ!</button>
             </div>
         </div>
     </div>
@@ -253,12 +268,28 @@
             <i class="fas fa-heart" style="color: var(--accent);"></i> НАШИ ПУШИСТЫЕ ДРУЗЬЯ
         </h2>
         
-        <!-- ВСЕ 4 ФОТОГРАФИИ ЖИВОТНЫХ ГАРАНТИРОВАННО РАБОТАЮТ -->
+        <!-- 100% РАБОТАЮЩИЕ КАРТОЧКИ ЖИВОТНЫХ БЕЗ КАРТИНОК -->
         <div class="animals-gallery">
-            <div class="animal-img" style="background-image: url('https://placedog.net/400/300?random=1');"></div>
-            <div class="animal-img" style="background-image: url('https://placekitten.com/400/300?image=1');"></div>
-            <div class="animal-img" style="background-image: url('https://placedog.net/400/300?random=2');"></div>
-            <div class="animal-img" style="background-image: url('https://placekitten.com/400/300?image=2');"></div>
+            <div class="animal-card">
+                <span class="animal-emoji">🐕</span>
+                <span class="animal-name">Собачки</span>
+                <p style="margin-top: 10px; font-size: 14px;">150+ хвостиков ищут дом</p>
+            </div>
+            <div class="animal-card">
+                <span class="animal-emoji">🐈</span>
+                <span class="animal-name">Кошечки</span>
+                <p style="margin-top: 10px; font-size: 14px;">200+ мурлык ждут любви</p>
+            </div>
+            <div class="animal-card">
+                <span class="animal-emoji">🐇</span>
+                <span class="animal-name">Кролики</span>
+                <p style="margin-top: 10px; font-size: 14px;">30+ пушистых комочков</p>
+            </div>
+            <div class="animal-card">
+                <span class="animal-emoji">🐦</span>
+                <span class="animal-name">Птицы</span>
+                <p style="margin-top: 10px; font-size: 14px;">50+ пернатых друзей</p>
+            </div>
         </div>
         
         <div class="stats">
@@ -285,7 +316,6 @@
         </h2>
         
         <div class="shelter-grid">
-            <!-- Карточка 1 -->
             <div class="card">
                 <h2><span class="animal-icon">🐕</span> Приют "Доброе сердце"</h2>
                 <p><strong>📍 Город:</strong> Краснодар</p>
@@ -294,7 +324,6 @@
                 <div class="phone">📞 +7 (861) 123-45-67</div>
             </div>
             
-            <!-- Карточка 2 -->
             <div class="card">
                 <h2><span class="animal-icon">🐈</span> "Лапки добра"</h2>
                 <p><strong>📍 Город:</strong> Новороссийск</p>
@@ -303,30 +332,28 @@
                 <div class="phone">📞 +7 (8617) 345-67-89</div>
             </div>
             
-            <!-- Карточка 3 -->
             <div class="card">
-                <h2><span class="animal-icon">🏔</span> Приют "Надежда" в Сочи</h2>
+                <h2><span class="animal-icon">🏔</span> Приют "Надежда"</h2>
                 <p><strong>📍 Город:</strong> Сочи</p>
                 <p><strong>🏠 Адрес:</strong> ул. Донская, 12</p>
                 <p><strong>📝 Описание:</strong> Работает с 2010 года на пожертвования. Горный воздух, экологичный подход.</p>
                 <div class="phone">📞 +7 (862) 456-78-90</div>
             </div>
             
-            <!-- Карточка 4 -->
             <div class="card">
                 <h2><span class="animal-icon">🐕‍🦺</span> "Верный друг"</h2>
                 <p><strong>📍 Город:</strong> Геленджик</p>
                 <p><strong>🏠 Адрес:</strong> ул. Курортная, 156</p>
-                <p><strong>📝 Описание:</strong> Приют у моря. Специализация - крупные породы собак. Большие вольеры.</p>
+                <p><strong>📝 Описание:</strong> Приют у моря. Специализация - крупные породы собак.</p>
                 <div class="phone">📞 +7 (86141) 5-67-89</div>
             </div>
         </div>
         
         <div class="card" style="background: rgba(255,107,139,0.1); border: 1px solid rgba(255,107,139,0.3); margin-top: 40px;">
             <h2 style="color: var(--accent);"><i class="fas fa-ambulance"></i> 🚑 Экстренные службы</h2>
-            <div class="phone" style="border-color: var(--accent);">🚑 Ветеринарная помощь (круглосуточно): +7 (861) 111-22-33</div>
-            <div class="phone" style="border-color: var(--accent);">📞 Служба отлова животных: +7 (861) 222-33-44</div>
-            <div class="phone" style="border-color: var(--accent);"><i class="fas fa-hands-helping"></i> Консультация по животным: +7 (861) 333-44-55</div>
+            <div class="phone" style="border-color: var(--accent);">🚑 Ветеринарная помощь (24/7): +7 (861) 111-22-33</div>
+            <div class="phone" style="border-color: var(--accent);">📞 Служба отлова: +7 (861) 222-33-44</div>
+            <div class="phone" style="border-color: var(--accent);"><i class="fas fa-hands-helping"></i> Консультация: +7 (861) 333-44-55</div>
         </div>
     </div>
     
@@ -351,13 +378,13 @@
         });
         
         window.addEventListener('load', function() {
-            document.querySelectorAll('.card').forEach((card, i) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
+            document.querySelectorAll('.card, .animal-card').forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
                 setTimeout(() => {
-                    card.style.transition = 'opacity 0.4s, transform 0.4s';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
+                    el.style.transition = 'opacity 0.3s, transform 0.3s';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
                 }, i * 50);
             });
         });
