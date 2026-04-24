@@ -30,6 +30,8 @@
         
         .header { 
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+            background-size: cover;
+            background-position: center;
             color: white; 
             padding: 60px 20px; 
             text-align: center; 
@@ -87,12 +89,11 @@
             padding: 30px 20px;
             text-align: center;
             transition: transform 0.2s;
-            cursor: pointer;
             backdrop-filter: blur(5px);
         }
         
         .animal-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.03);
             background: rgba(255,255,255,0.15);
         }
         
@@ -103,7 +104,7 @@
         }
         
         .animal-name {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: var(--secondary);
         }
@@ -116,7 +117,7 @@
         
         .shelter-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 25px;
             margin-top: 40px;
         }
@@ -125,7 +126,7 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 25px;
+            padding: 30px;
             border-radius: 20px; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             transition: transform 0.2s, box-shadow 0.2s;
@@ -151,20 +152,19 @@
         
         .phone { 
             background: rgba(255,255,255,0.1);
-            padding: 12px; 
+            padding: 15px; 
             border-radius: 10px;
-            margin: 15px 0 0 0; 
-            font-size: 16px; 
+            margin: 20px 0; 
+            font-size: 20px; 
             font-weight: bold; 
             color: #00CED1;
             border: 2px solid rgba(0,206,209,0.2);
             transition: all 0.2s;
             cursor: pointer;
-            text-align: center;
         }
         
         .phone:hover {
-            background: rgba(0,206,209,0.2);
+            background: rgba(0,206,209,0.1);
         }
         
         .animal-icon {
@@ -175,7 +175,7 @@
         
         .stats {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             margin: 40px 0;
             text-align: center;
@@ -220,19 +220,12 @@
             color: white;
         }
         
-        @media (max-width: 1200px) {
-            .shelter-grid, .stats, .animals-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
         @media (max-width: 768px) {
             .header { padding: 40px 15px; }
             .quote { font-size: 18px; padding: 15px; }
-            h1 { font-size: 1.8em !important; }
-            .shelter-grid, .stats, .animals-gallery { 
-                grid-template-columns: 1fr;
-            }
+            h1 { font-size: 2em !important; }
+            .shelter-grid { grid-template-columns: 1fr; }
+            .animals-gallery { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -268,27 +261,22 @@
             <i class="fas fa-heart" style="color: var(--accent);"></i> НАШИ ПУШИСТЫЕ ДРУЗЬЯ
         </h2>
         
-        <!-- 100% РАБОТАЮЩИЕ КАРТОЧКИ ЖИВОТНЫХ БЕЗ КАРТИНОК -->
         <div class="animals-gallery">
             <div class="animal-card">
                 <span class="animal-emoji">🐕</span>
                 <span class="animal-name">Собачки</span>
-                <p style="margin-top: 10px; font-size: 14px;">150+ хвостиков ищут дом</p>
             </div>
             <div class="animal-card">
                 <span class="animal-emoji">🐈</span>
                 <span class="animal-name">Кошечки</span>
-                <p style="margin-top: 10px; font-size: 14px;">200+ мурлык ждут любви</p>
             </div>
             <div class="animal-card">
                 <span class="animal-emoji">🐇</span>
                 <span class="animal-name">Кролики</span>
-                <p style="margin-top: 10px; font-size: 14px;">30+ пушистых комочков</p>
             </div>
             <div class="animal-card">
                 <span class="animal-emoji">🐦</span>
-                <span class="animal-name">Птицы</span>
-                <p style="margin-top: 10px; font-size: 14px;">50+ пернатых друзей</p>
+                <span class="animal-name">Птички</span>
             </div>
         </div>
         
@@ -316,12 +304,21 @@
         </h2>
         
         <div class="shelter-grid">
+            <!-- Карточки приютов КАК БЫЛИ, 6 штук -->
             <div class="card">
                 <h2><span class="animal-icon">🐕</span> Приют "Доброе сердце"</h2>
                 <p><strong>📍 Город:</strong> Краснодар</p>
                 <p><strong>🏠 Адрес:</strong> ул. Красная, 123</p>
                 <p><strong>📝 Описание:</strong> Крупнейший приют для собак и кошек. Современный ветеринарный кабинет, теплые вольеры.</p>
                 <div class="phone">📞 +7 (861) 123-45-67</div>
+            </div>
+            
+            <div class="card">
+                <h2><span class="animal-icon">🏢</span> Краснодарский городской приют</h2>
+                <p><strong>📍 Город:</strong> Краснодар</p>
+                <p><strong>🏠 Адрес:</strong> ул. Ставропольская, 45</p>
+                <p><strong>📝 Описание:</strong> Муниципальный приют. Просторные территории, профессиональные кинологи.</p>
+                <div class="phone">📞 +7 (861) 234-56-78</div>
             </div>
             
             <div class="card">
@@ -333,7 +330,7 @@
             </div>
             
             <div class="card">
-                <h2><span class="animal-icon">🏔</span> Приют "Надежда"</h2>
+                <h2><span class="animal-icon">🏔</span> Приют "Надежда" в Сочи</h2>
                 <p><strong>📍 Город:</strong> Сочи</p>
                 <p><strong>🏠 Адрес:</strong> ул. Донская, 12</p>
                 <p><strong>📝 Описание:</strong> Работает с 2010 года на пожертвования. Горный воздух, экологичный подход.</p>
@@ -344,16 +341,24 @@
                 <h2><span class="animal-icon">🐕‍🦺</span> "Верный друг"</h2>
                 <p><strong>📍 Город:</strong> Геленджик</p>
                 <p><strong>🏠 Адрес:</strong> ул. Курортная, 156</p>
-                <p><strong>📝 Описание:</strong> Приют у моря. Специализация - крупные породы собак.</p>
+                <p><strong>📝 Описание:</strong> Приют у моря. Специализация - крупные породы собак. Большие вольеры, ежедневные прогулки.</p>
                 <div class="phone">📞 +7 (86141) 5-67-89</div>
+            </div>
+            
+            <div class="card">
+                <h2><span class="animal-icon">🦮</span> "Анапа - город добра"</h2>
+                <p><strong>📍 Город:</strong> Анапа</p>
+                <p><strong>🏠 Адрес:</strong> Пионерский проспект, 234</p>
+                <p><strong>📝 Описание:</strong> Современный приют открытого типа. Своя ветклиника, зоогостиница, школа волонтеров.</p>
+                <div class="phone">📞 +7 (86133) 9-12-34</div>
             </div>
         </div>
         
         <div class="card" style="background: rgba(255,107,139,0.1); border: 1px solid rgba(255,107,139,0.3); margin-top: 40px;">
             <h2 style="color: var(--accent);"><i class="fas fa-ambulance"></i> 🚑 Экстренные службы</h2>
-            <div class="phone" style="border-color: var(--accent);">🚑 Ветеринарная помощь (24/7): +7 (861) 111-22-33</div>
-            <div class="phone" style="border-color: var(--accent);">📞 Служба отлова: +7 (861) 222-33-44</div>
-            <div class="phone" style="border-color: var(--accent);"><i class="fas fa-hands-helping"></i> Консультация: +7 (861) 333-44-55</div>
+            <div class="phone" style="border-color: var(--accent);">🚑 Ветеринарная помощь (круглосуточно): +7 (861) 111-22-33</div>
+            <div class="phone" style="border-color: var(--accent);">📞 Служба отлова животных: +7 (861) 222-33-44</div>
+            <div class="phone" style="border-color: var(--accent);"><i class="fas fa-hands-helping"></i> Консультация по животным: +7 (861) 333-44-55</div>
         </div>
     </div>
     
@@ -382,7 +387,7 @@
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 setTimeout(() => {
-                    el.style.transition = 'opacity 0.3s, transform 0.3s';
+                    el.style.transition = 'opacity 0.4s, transform 0.4s';
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
                 }, i * 50);
