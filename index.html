@@ -109,7 +109,7 @@
         
         .shelter-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 25px;
             margin-top: 40px;
         }
@@ -128,8 +128,7 @@
         
         .card::before {
             content: '';
-
-position: absolute;
+            position: absolute;
             top: 0;
             left: 0;
             width: 4px;
@@ -197,11 +196,19 @@ position: absolute;
         }
         
         /* Медиа-запросы для мобильных */
+        @media (max-width: 1200px) {
+            .shelter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .header { padding: 40px 15px; }
             .quote { font-size: 18px; padding: 15px; }
             h1 { font-size: 2em !important; }
-            .shelter-grid { grid-template-columns: 1fr; }
+            .shelter-grid { 
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Ленивая загрузка изображений */
@@ -238,8 +245,7 @@ position: absolute;
                     color: var(--dark); 
                     border: none; 
                     padding: 12px 35px;
-
-font-size: 16px; 
+                    font-size: 16px; 
                     border-radius: 50px; 
                     font-weight: bold;
                     cursor: pointer;
@@ -258,12 +264,11 @@ font-size: 16px;
         </h2>
         
         <div class="animals-gallery">
-    <div class="animal-img" style="background-image: url('https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=80&auto=format');"></div>
-    <div class="animal-img" style="background-image: url('https://images.unsplash.com/photo-1514888286974-6d03bdeacba8?w=400&q=80&auto=format');"></div>
-    <div class="animal-img" style="background-image: url('https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80&auto=format');"></div>
-    <div class="animal-img" style="background-image: url('https://images.unsplash.com/photo-1557008075-7f2c5efa4cfd?w=400&q=80&auto=format');"></div>
-    <div class="animal-img" style="background-image: url('https://images.unsplash.com/photo-1543109725-7e7526b349c2?w=400&q=80&auto=format');"></div>
-</div>
+            <div class="animal-img" style="background-image: url('https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&q=80&auto=format');"></div>
+            <div class="animal-img" style="background-image: url('https://images.unsplash.com/photo-1514888286974-6d03bdeacba8?w=400&q=80&auto=format');"></div>
+            <div class="animal-img" style="background-image: url('https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80&auto=format');"></div>
+            <div class="animal-img" style="background-image: url('https://images.unsplash.com/photo-1557008075-7f2c5efa4cfd?w=400&q=80&auto=format');"></div>
+        </div>
         
         <div class="stats">
             <div class="stat-item">
@@ -289,7 +294,7 @@ font-size: 16px;
         </h2>
         
         <div class="shelter-grid">
-            <!-- Карточки без ссылок, просто информация -->
+            <!-- Карточка 1 -->
             <div class="card">
                 <h2><span class="animal-icon">🐕</span> Приют "Доброе сердце"</h2>
                 <p><strong>📍 Город:</strong> Краснодар</p>
@@ -298,46 +303,31 @@ font-size: 16px;
                 <div class="phone">📞 +7 (861) 123-45-67</div>
             </div>
             
-            <div class="card">
-                <h2><span class="animal-icon">🏢</span> Краснодарский городской приют</h2>
-                <p><strong>📍 Город:</strong> Краснодар</p>
-                <p><strong>🏠 Адрес:</strong> ул. Ставропольская, 45</p>
-                <p><strong>📝 Описание:</strong> Муниципальный приют. Просторные территории, профессиональные кинологи.</p>
-                <div class="phone">📞 +7 (861) 234-56-78</div>
-            </div>
-            
+            <!-- Карточка 2 -->
             <div class="card">
                 <h2><span class="animal-icon">🐈</span> "Лапки добра"</h2>
                 <p><strong>📍 Город:</strong> Новороссийск</p>
                 <p><strong>🏠 Адрес:</strong> ул. Мира, 89</p>
                 <p><strong>📝 Описание:</strong> Специализируется на кошках. Уютные домики, игровые комплексы.</p>
                 <div class="phone">📞 +7 (8617) 345-67-89</div>
-
-</div>
+            </div>
             
+            <!-- Карточка 3 -->
             <div class="card">
-                <h2><span class="animal-icon">🏔️</span> Приют "Надежда" в Сочи</h2>
+                <h2><span class="animal-icon">🏔</span> Приют "Надежда" в Сочи</h2>
                 <p><strong>📍 Город:</strong> Сочи</p>
                 <p><strong>🏠 Адрес:</strong> ул. Донская, 12</p>
                 <p><strong>📝 Описание:</strong> Работает с 2010 года на пожертвования. Горный воздух, экологичный подход.</p>
                 <div class="phone">📞 +7 (862) 456-78-90</div>
             </div>
             
-            <!-- НОВЫЕ 2 ПРИЮТА -->
+            <!-- Карточка 4 -->
             <div class="card">
                 <h2><span class="animal-icon">🐕‍🦺</span> "Верный друг"</h2>
                 <p><strong>📍 Город:</strong> Геленджик</p>
                 <p><strong>🏠 Адрес:</strong> ул. Курортная, 156</p>
-                <p><strong>📝 Описание:</strong> Приют у моря. Специализация - крупные породы собак. Большие вольеры, ежедневные прогулки.</p>
+                <p><strong>📝 Описание:</strong> Приют у моря. Специализация - крупные породы собак. Большие вольеры.</p>
                 <div class="phone">📞 +7 (86141) 5-67-89</div>
-            </div>
-            
-            <div class="card">
-                <h2><span class="animal-icon">🦮</span> "Анапа - город добра"</h2>
-                <p><strong>📍 Город:</strong> Анапа</p>
-                <p><strong>🏠 Адрес:</strong> Пионерский проспект, 234</p>
-                <p><strong>📝 Описание:</strong> Современный приют открытого типа. Своя ветклиника, зоогостиница, школа волонтеров.</p>
-                <div class="phone">📞 +7 (86133) 9-12-34</div>
             </div>
         </div>
         
@@ -353,7 +343,7 @@ font-size: 16px;
         <div style="font-size: 35px; margin: 10px 0; color: var(--secondary);">🐾 🐕 🐈 🐇 🐦 🐾</div>
         <h3>ШКОЛЬНЫЙ ПРОЕКТ 2026 года</h3>
         <p>Сайт создан учеником 9 "А" класса Герасимов.В</p>
-        <p>МАОУ гимназии №69<p>
+        <p>МАОУ гимназии №69</p>
         <p>© 2026 Все права защищены</p>
         <div style="margin-top: 20px; font-size: 13px; opacity: 0.7;">
             <p>Контакты указаны для примера. Актуальные телефоны уточняйте на сайтах приютов.</p>
@@ -379,7 +369,7 @@ font-size: 16px;
                     card.style.transition = 'opacity 0.4s, transform 0.4s';
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
-                }, i * 50); // Быстрее
+                }, i * 50);
             });
         });
     </script>
